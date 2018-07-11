@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: com.crossoverjie.kafka.orderconsumer.JsonTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.038 sec <<< FAILURE! - in com.crossoverjie.kafka.orderconsumer.JsonTest
+test(com.crossoverjie.kafka.orderconsumer.JsonTest)  Time elapsed: 0.035 sec  <<< ERROR!
+java.lang.IllegalArgumentException: class com.crossoverjie.kafka.orderconsumer.pojo.Stock declares multiple JSON fields named id
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.getBoundFields(ReflectiveTypeAdapterFactory.java:172)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:102)
+	at com.google.gson.Gson.getAdapter(Gson.java:457)
+	at com.google.gson.Gson.fromJson(Gson.java:921)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	at com.google.gson.Gson.fromJson(Gson.java:836)
+	at com.google.gson.Gson.fromJson(Gson.java:808)
+	at com.crossoverjie.kafka.orderconsumer.JsonTest.test(JsonTest.java:26)
+

@@ -1,0 +1,708 @@
+[INFO ][20180704 09:47:50,350][?:?] using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+[INFO ][20180704 09:47:50,636][Main:61]  [DUBBO] Use container type([spring, jetty]) to run dubbo serivce., dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:54,168][Log4jFilter:132] {conn-10001} connected
+[DEBUG][20180704 09:47:54,231][Log4jFilter:132] {conn-10002} connected
+[DEBUG][20180704 09:47:54,291][Log4jFilter:132] {conn-10003} connected
+[INFO ][20180704 09:47:54,317][DruidDataSource:721] {dataSource-1} inited
+[DEBUG][20180704 09:47:54,751][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Protocol$Adaptive implements com.alibaba.dubbo.rpc.Protocol {
+public com.alibaba.dubbo.rpc.Exporter export(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.export(arg0);
+}
+public com.alibaba.dubbo.rpc.Invoker refer(java.lang.Class arg0, com.alibaba.dubbo.common.URL arg1) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.refer(arg0, arg1);
+}
+public void destroy() {throw new UnsupportedOperationException("method public abstract void com.alibaba.dubbo.rpc.Protocol.destroy() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+public int getDefaultPort() {throw new UnsupportedOperationException("method public abstract int com.alibaba.dubbo.rpc.Protocol.getDefaultPort() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,002][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ProxyFactory$Adaptive implements com.alibaba.dubbo.rpc.ProxyFactory {
+public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0);
+}
+public com.alibaba.dubbo.rpc.Invoker getInvoker(java.lang.Object arg0, java.lang.Class arg1, com.alibaba.dubbo.common.URL arg2) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg2 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg2;
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getInvoker(arg0, arg1, arg2);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:55,162][ServiceBean:118]  [DUBBO] The service ready on spring started. service: com.crossoverJie.seconds.kill.api.OrderServiceFacade, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,225][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.cache;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class CacheFactory$Adaptive implements com.alibaba.dubbo.cache.CacheFactory {
+public com.alibaba.dubbo.cache.Cache getCache(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("cache", "lru");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.cache.CacheFactory) name from url(" + url.toString() + ") use keys([cache])");
+com.alibaba.dubbo.cache.CacheFactory extension = (com.alibaba.dubbo.cache.CacheFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.cache.CacheFactory.class).getExtension(extName);
+return extension.getCache(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,233][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.monitor;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class MonitorFactory$Adaptive implements com.alibaba.dubbo.monitor.MonitorFactory {
+public com.alibaba.dubbo.monitor.Monitor getMonitor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.monitor.MonitorFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.monitor.MonitorFactory extension = (com.alibaba.dubbo.monitor.MonitorFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.monitor.MonitorFactory.class).getExtension(extName);
+return extension.getMonitor(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,241][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.validation;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Validation$Adaptive implements com.alibaba.dubbo.validation.Validation {
+public com.alibaba.dubbo.validation.Validator getValidator(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("validation", "jvalidation");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.validation.Validation) name from url(" + url.toString() + ") use keys([validation])");
+com.alibaba.dubbo.validation.Validation extension = (com.alibaba.dubbo.validation.Validation)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.validation.Validation.class).getExtension(extName);
+return extension.getValidator(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:55,248][ServiceConfig:529]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade to local registry, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:55,248][ServiceConfig:489]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade to url dubbo://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20881&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668875171, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:55,248][ServiceConfig:499]  [DUBBO] Register dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade url dubbo://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20881&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668875171 to registry registry://192.168.116.168:2181/com.alibaba.dubbo.registry.RegistryService?application=stock-service&dubbo=2.0.1&owner=crossoverJie&pid=17612&registry=zookeeper&timestamp=1530668875166, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,253][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Cluster$Adaptive implements com.alibaba.dubbo.rpc.cluster.Cluster {
+public com.alibaba.dubbo.rpc.Invoker join(com.alibaba.dubbo.rpc.cluster.Directory arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("cluster", "failover");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.Cluster) name from url(" + url.toString() + ") use keys([cluster])");
+com.alibaba.dubbo.rpc.cluster.Cluster extension = (com.alibaba.dubbo.rpc.cluster.Cluster)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.Cluster.class).getExtension(extName);
+return extension.join(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,260][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.registry;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class RegistryFactory$Adaptive implements com.alibaba.dubbo.registry.RegistryFactory {
+public com.alibaba.dubbo.registry.Registry getRegistry(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.registry.RegistryFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.registry.RegistryFactory extension = (com.alibaba.dubbo.registry.RegistryFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.registry.RegistryFactory.class).getExtension(extName);
+return extension.getRegistry(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,277][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Transporter$Adaptive implements com.alibaba.dubbo.remoting.Transporter {
+public com.alibaba.dubbo.remoting.Server bind(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("server", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([server, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.bind(arg0, arg1);
+}
+public com.alibaba.dubbo.remoting.Client connect(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.connect(arg0, arg1);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,288][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Dispatcher$Adaptive implements com.alibaba.dubbo.remoting.Dispatcher {
+public com.alibaba.dubbo.remoting.ChannelHandler dispatch(com.alibaba.dubbo.remoting.ChannelHandler arg0, com.alibaba.dubbo.common.URL arg1) {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = url.getParameter("dispatcher", url.getParameter("dispather", url.getParameter("channel.handler", "all")));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Dispatcher) name from url(" + url.toString() + ") use keys([dispatcher, dispather, channel.handler])");
+com.alibaba.dubbo.remoting.Dispatcher extension = (com.alibaba.dubbo.remoting.Dispatcher)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Dispatcher.class).getExtension(extName);
+return extension.dispatch(arg0, arg1);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,295][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.common.threadpool;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ThreadPool$Adaptive implements com.alibaba.dubbo.common.threadpool.ThreadPool {
+public java.util.concurrent.Executor getExecutor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("threadpool", "fixed");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.common.threadpool.ThreadPool) name from url(" + url.toString() + ") use keys([threadpool])");
+com.alibaba.dubbo.common.threadpool.ThreadPool extension = (com.alibaba.dubbo.common.threadpool.ThreadPool)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.common.threadpool.ThreadPool.class).getExtension(extName);
+return extension.getExecutor(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,346][NettyHelper$DubboLogger:68]  [DUBBO] Using the autodetected NIO constraint level: 0, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:55,387][AbstractServer:65]  [DUBBO] Start NettyServer bind /0.0.0.0:20881, export /192.168.116.168:20881, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,393][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.remoting.zookeeper;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ZookeeperTransporter$Adaptive implements com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter {
+public com.alibaba.dubbo.remoting.zookeeper.ZookeeperClient connect(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "zkclient"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter extension = (com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter.class).getExtension(extName);
+return extension.connect(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:55,488][AbstractRegistry:199]  [DUBBO] Load registry store file /home/jie/.dubbo/dubbo-registry-stock-service-192.168.116.168:2181.cache, data: {com.crossoverJie.seconds.kill.api.StockServiceFacade=empty://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=14174&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530589875340, com.crossoverJie.seconds.kill.api.OrderServiceFacade=empty://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=14174&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530589872011}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:55,508][ExecutionList:88]  [DUBBO] Executor for listenablefuture is null, will use default executor!, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,580][ZkConnection:63] Creating new ZookKeeper instance to connect to 192.168.116.168:2181.
+[INFO ][20180704 09:47:55,580][ZkEventThread:64] Starting ZkClient event thread.
+[DEBUG][20180704 09:47:55,694][ZkClient:874] Awaiting connection to Zookeeper server
+[DEBUG][20180704 09:47:55,695][ZkClient:628] Waiting for keeper state SyncConnected
+[DEBUG][20180704 09:47:55,895][ZkClient:351] Received event: WatchedEvent state:SyncConnected type:None path:null
+[INFO ][20180704 09:47:55,896][ZkClient:449] zookeeper state changed (SyncConnected)
+[DEBUG][20180704 09:47:55,896][ZkClient:395] Leaving process event
+[DEBUG][20180704 09:47:55,896][ZkClient:638] State is SyncConnected
+[INFO ][20180704 09:47:55,898][AbstractRegistry:269]  [DUBBO] Register: dubbo://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668875171, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:55,978][AbstractRegistry:292]  [DUBBO] Subscribe: provider://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668875171, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:55,991][AbstractRegistry:380]  [DUBBO] Notify urls for subscribe url provider://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668875171, urls: [empty://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668875171], dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,992][RegistryProtocol$OverrideListener:361]  [DUBBO] original override urls: [empty://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668875171], dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,993][RegistryProtocol$OverrideListener:363]  [DUBBO] subscribe url: provider://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668875171, override urls: [empty://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668875171], dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:55,998][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class RouterFactory$Adaptive implements com.alibaba.dubbo.rpc.cluster.RouterFactory {
+public com.alibaba.dubbo.rpc.cluster.Router getRouter(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getProtocol();
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.RouterFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.cluster.RouterFactory extension = (com.alibaba.dubbo.rpc.cluster.RouterFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.RouterFactory.class).getExtension(extName);
+return extension.getRouter(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:56,005][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ConfiguratorFactory$Adaptive implements com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory {
+public com.alibaba.dubbo.rpc.cluster.Configurator getConfigurator(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getProtocol();
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory extension = (com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory.class).getExtension(extName);
+return extension.getConfigurator(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:56,014][ServiceBean:118]  [DUBBO] The service ready on spring started. service: com.crossoverJie.seconds.kill.api.StockServiceFacade, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:56,028][ServiceConfig:529]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.StockServiceFacade to local registry, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:56,028][ServiceConfig:489]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.StockServiceFacade to url dubbo://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20881&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668876016, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:56,028][ServiceConfig:499]  [DUBBO] Register dubbo service com.crossoverJie.seconds.kill.api.StockServiceFacade url dubbo://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20881&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668876016 to registry registry://192.168.116.168:2181/com.alibaba.dubbo.registry.RegistryService?application=stock-service&dubbo=2.0.1&owner=crossoverJie&pid=17612&registry=zookeeper&timestamp=1530668876016, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:56,029][AbstractRegistry:269]  [DUBBO] Register: dubbo://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668876016, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:56,039][AbstractRegistry:292]  [DUBBO] Subscribe: provider://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668876016, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:56,047][AbstractRegistry:380]  [DUBBO] Notify urls for subscribe url provider://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668876016, urls: [empty://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668876016], dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:56,048][RegistryProtocol$OverrideListener:361]  [DUBBO] original override urls: [empty://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668876016], dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:47:56,048][RegistryProtocol$OverrideListener:363]  [DUBBO] subscribe url: provider://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668876016, override urls: [empty://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668876016], dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:56,051][Main:86]  [DUBBO] Dubbo SpringContainer started!, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:47:56,139][Main:86]  [DUBBO] Dubbo JettyContainer started!, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:54:07,038][?:?] using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+[INFO ][20180704 09:54:07,144][Main:61]  [DUBBO] Use container type([spring, jetty]) to run dubbo serivce., dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:54:09,253][Log4jFilter:132] {conn-10001} connected
+[DEBUG][20180704 09:54:09,320][Log4jFilter:132] {conn-10002} connected
+[DEBUG][20180704 09:54:09,367][Log4jFilter:132] {conn-10003} connected
+[INFO ][20180704 09:54:09,376][DruidDataSource:721] {dataSource-1} inited
+[DEBUG][20180704 09:54:09,782][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Protocol$Adaptive implements com.alibaba.dubbo.rpc.Protocol {
+public com.alibaba.dubbo.rpc.Exporter export(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.export(arg0);
+}
+public com.alibaba.dubbo.rpc.Invoker refer(java.lang.Class arg0, com.alibaba.dubbo.common.URL arg1) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.refer(arg0, arg1);
+}
+public void destroy() {throw new UnsupportedOperationException("method public abstract void com.alibaba.dubbo.rpc.Protocol.destroy() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+public int getDefaultPort() {throw new UnsupportedOperationException("method public abstract int com.alibaba.dubbo.rpc.Protocol.getDefaultPort() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:54:09,980][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ProxyFactory$Adaptive implements com.alibaba.dubbo.rpc.ProxyFactory {
+public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0);
+}
+public com.alibaba.dubbo.rpc.Invoker getInvoker(java.lang.Object arg0, java.lang.Class arg1, com.alibaba.dubbo.common.URL arg2) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg2 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg2;
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getInvoker(arg0, arg1, arg2);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:54:10,077][ServiceBean:118]  [DUBBO] The service ready on spring started. service: com.crossoverJie.seconds.kill.api.OrderServiceFacade, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:54:10,140][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.cache;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class CacheFactory$Adaptive implements com.alibaba.dubbo.cache.CacheFactory {
+public com.alibaba.dubbo.cache.Cache getCache(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("cache", "lru");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.cache.CacheFactory) name from url(" + url.toString() + ") use keys([cache])");
+com.alibaba.dubbo.cache.CacheFactory extension = (com.alibaba.dubbo.cache.CacheFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.cache.CacheFactory.class).getExtension(extName);
+return extension.getCache(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:54:10,152][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.monitor;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class MonitorFactory$Adaptive implements com.alibaba.dubbo.monitor.MonitorFactory {
+public com.alibaba.dubbo.monitor.Monitor getMonitor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.monitor.MonitorFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.monitor.MonitorFactory extension = (com.alibaba.dubbo.monitor.MonitorFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.monitor.MonitorFactory.class).getExtension(extName);
+return extension.getMonitor(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:54:10,160][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.validation;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Validation$Adaptive implements com.alibaba.dubbo.validation.Validation {
+public com.alibaba.dubbo.validation.Validator getValidator(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("validation", "jvalidation");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.validation.Validation) name from url(" + url.toString() + ") use keys([validation])");
+com.alibaba.dubbo.validation.Validation extension = (com.alibaba.dubbo.validation.Validation)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.validation.Validation.class).getExtension(extName);
+return extension.getValidator(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:54:10,167][ServiceConfig:529]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade to local registry, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:54:10,167][ServiceConfig:489]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade to url dubbo://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20881&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17663&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669250087, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:54:10,167][ServiceConfig:499]  [DUBBO] Register dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade url dubbo://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20881&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17663&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669250087 to registry registry://192.168.116.168:2181/com.alibaba.dubbo.registry.RegistryService?application=stock-service&dubbo=2.0.1&owner=crossoverJie&pid=17663&registry=zookeeper&timestamp=1530669250082, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:54:10,171][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Cluster$Adaptive implements com.alibaba.dubbo.rpc.cluster.Cluster {
+public com.alibaba.dubbo.rpc.Invoker join(com.alibaba.dubbo.rpc.cluster.Directory arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("cluster", "failover");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.Cluster) name from url(" + url.toString() + ") use keys([cluster])");
+com.alibaba.dubbo.rpc.cluster.Cluster extension = (com.alibaba.dubbo.rpc.cluster.Cluster)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.Cluster.class).getExtension(extName);
+return extension.join(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:54:10,178][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.registry;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class RegistryFactory$Adaptive implements com.alibaba.dubbo.registry.RegistryFactory {
+public com.alibaba.dubbo.registry.Registry getRegistry(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.registry.RegistryFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.registry.RegistryFactory extension = (com.alibaba.dubbo.registry.RegistryFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.registry.RegistryFactory.class).getExtension(extName);
+return extension.getRegistry(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:54:10,196][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Transporter$Adaptive implements com.alibaba.dubbo.remoting.Transporter {
+public com.alibaba.dubbo.remoting.Server bind(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("server", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([server, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.bind(arg0, arg1);
+}
+public com.alibaba.dubbo.remoting.Client connect(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.connect(arg0, arg1);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:54:10,214][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Dispatcher$Adaptive implements com.alibaba.dubbo.remoting.Dispatcher {
+public com.alibaba.dubbo.remoting.ChannelHandler dispatch(com.alibaba.dubbo.remoting.ChannelHandler arg0, com.alibaba.dubbo.common.URL arg1) {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = url.getParameter("dispatcher", url.getParameter("dispather", url.getParameter("channel.handler", "all")));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Dispatcher) name from url(" + url.toString() + ") use keys([dispatcher, dispather, channel.handler])");
+com.alibaba.dubbo.remoting.Dispatcher extension = (com.alibaba.dubbo.remoting.Dispatcher)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Dispatcher.class).getExtension(extName);
+return extension.dispatch(arg0, arg1);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:54:10,224][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.common.threadpool;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ThreadPool$Adaptive implements com.alibaba.dubbo.common.threadpool.ThreadPool {
+public java.util.concurrent.Executor getExecutor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("threadpool", "fixed");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.common.threadpool.ThreadPool) name from url(" + url.toString() + ") use keys([threadpool])");
+com.alibaba.dubbo.common.threadpool.ThreadPool extension = (com.alibaba.dubbo.common.threadpool.ThreadPool)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.common.threadpool.ThreadPool.class).getExtension(extName);
+return extension.getExecutor(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:54:10,262][NettyHelper$DubboLogger:68]  [DUBBO] Using the autodetected NIO constraint level: 0, dubbo version: 2.0.1, current host: 192.168.116.168
+[ERROR][20180704 09:54:10,298][Main:91]  [DUBBO] Fail to start server(url: dubbo://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20881&channel.readonly.sent=true&codec=dubbo&dubbo=2.0.1&generic=false&heartbeat=60000&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17663&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669250087) Failed to bind NettyServer on /192.168.116.168:20881, cause: Failed to bind to: /0.0.0.0:20881, dubbo version: 2.0.1, current host: 192.168.116.168
+com.alibaba.dubbo.rpc.RpcException: Fail to start server(url: dubbo://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20881&channel.readonly.sent=true&codec=dubbo&dubbo=2.0.1&generic=false&heartbeat=60000&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17663&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669250087) Failed to bind NettyServer on /192.168.116.168:20881, cause: Failed to bind to: /0.0.0.0:20881
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.createServer(DubboProtocol.java:274)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.openServer(DubboProtocol.java:251)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.export(DubboProtocol.java:238)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:93)
+	at com.alibaba.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:56)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:56)
+	at com.alibaba.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java)
+	at com.alibaba.dubbo.registry.integration.RegistryProtocol.doLocalExport(RegistryProtocol.java:166)
+	at com.alibaba.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:129)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:54)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:54)
+	at com.alibaba.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java)
+	at com.alibaba.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:504)
+	at com.alibaba.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:356)
+	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:315)
+	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:214)
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:120)
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:49)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:167)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:383)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:337)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:882)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
+	at com.alibaba.dubbo.container.spring.SpringContainer.start(SpringContainer.java:45)
+	at com.alibaba.dubbo.container.Main.main(Main.java:85)
+Caused by: com.alibaba.dubbo.remoting.RemotingException: Failed to bind NettyServer on /192.168.116.168:20881, cause: Failed to bind to: /0.0.0.0:20881
+	at com.alibaba.dubbo.remoting.transport.AbstractServer.<init>(AbstractServer.java:68)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyServer.<init>(NettyServer.java:61)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyTransporter.bind(NettyTransporter.java:31)
+	at com.alibaba.dubbo.remoting.Transporter$Adaptive.bind(Transporter$Adaptive.java)
+	at com.alibaba.dubbo.remoting.Transporters.bind(Transporters.java:56)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchanger.bind(HeaderExchanger.java:42)
+	at com.alibaba.dubbo.remoting.exchange.Exchangers.bind(Exchangers.java:70)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.createServer(DubboProtocol.java:272)
+	... 28 more
+Caused by: org.jboss.netty.channel.ChannelException: Failed to bind to: /0.0.0.0:20881
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyServer.doOpen(NettyServer.java:92)
+	at com.alibaba.dubbo.remoting.transport.AbstractServer.<init>(AbstractServer.java:63)
+	... 35 more
+Caused by: java.net.BindException: 地址已在使用
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74)
+	at org.jboss.netty.channel.Channels.bind(Channels.java:468)
+	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:192)
+	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348)
+	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90)
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282)
+	... 37 more
+[INFO ][20180704 09:54:10,303][AbstractConfig$1:80]  [DUBBO] Run shutdown hook now., dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:54:10,303][AbstractRegistryFactory:64]  [DUBBO] Close all registries [], dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:54:20,305][AbstractProtocol:75]  [DUBBO] Unexport service: dubbo://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20881&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17663&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669250087, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:54:20,306][AbstractProtocol:75]  [DUBBO] Unexport service: injvm://127.0.0.1/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20881&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17663&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669250087, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:33,093][?:?] using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+[INFO ][20180704 09:56:33,171][Main:61]  [DUBBO] Use container type([spring, jetty]) to run dubbo serivce., dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:34,729][Log4jFilter:132] {conn-10001} connected
+[DEBUG][20180704 09:56:34,779][Log4jFilter:132] {conn-10002} connected
+[DEBUG][20180704 09:56:34,830][Log4jFilter:132] {conn-10003} connected
+[INFO ][20180704 09:56:34,836][DruidDataSource:721] {dataSource-1} inited
+[DEBUG][20180704 09:56:35,274][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Protocol$Adaptive implements com.alibaba.dubbo.rpc.Protocol {
+public com.alibaba.dubbo.rpc.Exporter export(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.export(arg0);
+}
+public com.alibaba.dubbo.rpc.Invoker refer(java.lang.Class arg0, com.alibaba.dubbo.common.URL arg1) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.refer(arg0, arg1);
+}
+public void destroy() {throw new UnsupportedOperationException("method public abstract void com.alibaba.dubbo.rpc.Protocol.destroy() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+public int getDefaultPort() {throw new UnsupportedOperationException("method public abstract int com.alibaba.dubbo.rpc.Protocol.getDefaultPort() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,408][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ProxyFactory$Adaptive implements com.alibaba.dubbo.rpc.ProxyFactory {
+public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0);
+}
+public com.alibaba.dubbo.rpc.Invoker getInvoker(java.lang.Object arg0, java.lang.Class arg1, com.alibaba.dubbo.common.URL arg2) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg2 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg2;
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getInvoker(arg0, arg1, arg2);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:35,496][ServiceBean:118]  [DUBBO] The service ready on spring started. service: com.crossoverJie.seconds.kill.api.OrderServiceFacade, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,555][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.cache;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class CacheFactory$Adaptive implements com.alibaba.dubbo.cache.CacheFactory {
+public com.alibaba.dubbo.cache.Cache getCache(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("cache", "lru");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.cache.CacheFactory) name from url(" + url.toString() + ") use keys([cache])");
+com.alibaba.dubbo.cache.CacheFactory extension = (com.alibaba.dubbo.cache.CacheFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.cache.CacheFactory.class).getExtension(extName);
+return extension.getCache(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,563][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.monitor;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class MonitorFactory$Adaptive implements com.alibaba.dubbo.monitor.MonitorFactory {
+public com.alibaba.dubbo.monitor.Monitor getMonitor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.monitor.MonitorFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.monitor.MonitorFactory extension = (com.alibaba.dubbo.monitor.MonitorFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.monitor.MonitorFactory.class).getExtension(extName);
+return extension.getMonitor(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,575][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.validation;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Validation$Adaptive implements com.alibaba.dubbo.validation.Validation {
+public com.alibaba.dubbo.validation.Validator getValidator(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("validation", "jvalidation");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.validation.Validation) name from url(" + url.toString() + ") use keys([validation])");
+com.alibaba.dubbo.validation.Validation extension = (com.alibaba.dubbo.validation.Validation)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.validation.Validation.class).getExtension(extName);
+return extension.getValidator(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:35,582][ServiceConfig:529]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade to local registry, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:35,582][ServiceConfig:489]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade to url dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20880&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:35,582][ServiceConfig:499]  [DUBBO] Register dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade url dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20880&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506 to registry registry://192.168.116.168:2181/com.alibaba.dubbo.registry.RegistryService?application=stock-service&dubbo=2.0.1&owner=crossoverJie&pid=17692&registry=zookeeper&timestamp=1530669395501, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,586][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Cluster$Adaptive implements com.alibaba.dubbo.rpc.cluster.Cluster {
+public com.alibaba.dubbo.rpc.Invoker join(com.alibaba.dubbo.rpc.cluster.Directory arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("cluster", "failover");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.Cluster) name from url(" + url.toString() + ") use keys([cluster])");
+com.alibaba.dubbo.rpc.cluster.Cluster extension = (com.alibaba.dubbo.rpc.cluster.Cluster)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.Cluster.class).getExtension(extName);
+return extension.join(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,593][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.registry;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class RegistryFactory$Adaptive implements com.alibaba.dubbo.registry.RegistryFactory {
+public com.alibaba.dubbo.registry.Registry getRegistry(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.registry.RegistryFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.registry.RegistryFactory extension = (com.alibaba.dubbo.registry.RegistryFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.registry.RegistryFactory.class).getExtension(extName);
+return extension.getRegistry(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,639][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Transporter$Adaptive implements com.alibaba.dubbo.remoting.Transporter {
+public com.alibaba.dubbo.remoting.Server bind(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("server", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([server, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.bind(arg0, arg1);
+}
+public com.alibaba.dubbo.remoting.Client connect(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.connect(arg0, arg1);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,670][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Dispatcher$Adaptive implements com.alibaba.dubbo.remoting.Dispatcher {
+public com.alibaba.dubbo.remoting.ChannelHandler dispatch(com.alibaba.dubbo.remoting.ChannelHandler arg0, com.alibaba.dubbo.common.URL arg1) {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = url.getParameter("dispatcher", url.getParameter("dispather", url.getParameter("channel.handler", "all")));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Dispatcher) name from url(" + url.toString() + ") use keys([dispatcher, dispather, channel.handler])");
+com.alibaba.dubbo.remoting.Dispatcher extension = (com.alibaba.dubbo.remoting.Dispatcher)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Dispatcher.class).getExtension(extName);
+return extension.dispatch(arg0, arg1);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,720][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.common.threadpool;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ThreadPool$Adaptive implements com.alibaba.dubbo.common.threadpool.ThreadPool {
+public java.util.concurrent.Executor getExecutor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("threadpool", "fixed");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.common.threadpool.ThreadPool) name from url(" + url.toString() + ") use keys([threadpool])");
+com.alibaba.dubbo.common.threadpool.ThreadPool extension = (com.alibaba.dubbo.common.threadpool.ThreadPool)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.common.threadpool.ThreadPool.class).getExtension(extName);
+return extension.getExecutor(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,787][NettyHelper$DubboLogger:68]  [DUBBO] Using the autodetected NIO constraint level: 0, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:35,859][AbstractServer:65]  [DUBBO] Start NettyServer bind /0.0.0.0:20880, export /192.168.116.168:20880, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,865][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.remoting.zookeeper;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ZookeeperTransporter$Adaptive implements com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter {
+public com.alibaba.dubbo.remoting.zookeeper.ZookeeperClient connect(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "zkclient"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter extension = (com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter.class).getExtension(extName);
+return extension.connect(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:35,912][AbstractRegistry:199]  [DUBBO] Load registry store file /home/jie/.dubbo/dubbo-registry-stock-service-192.168.116.168:2181.cache, data: {com.crossoverJie.seconds.kill.api.StockServiceFacade=empty://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668876016, com.crossoverJie.seconds.kill.api.OrderServiceFacade=empty://192.168.116.168:20881/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17612&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530668875171}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:35,922][ExecutionList:88]  [DUBBO] Executor for listenablefuture is null, will use default executor!, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:35,998][ZkConnection:63] Creating new ZookKeeper instance to connect to 192.168.116.168:2181.
+[INFO ][20180704 09:56:35,999][ZkEventThread:64] Starting ZkClient event thread.
+[DEBUG][20180704 09:56:36,084][ZkClient:874] Awaiting connection to Zookeeper server
+[DEBUG][20180704 09:56:36,085][ZkClient:628] Waiting for keeper state SyncConnected
+[DEBUG][20180704 09:56:36,161][ZkClient:351] Received event: WatchedEvent state:SyncConnected type:None path:null
+[INFO ][20180704 09:56:36,161][ZkClient:449] zookeeper state changed (SyncConnected)
+[DEBUG][20180704 09:56:36,161][ZkClient:395] Leaving process event
+[DEBUG][20180704 09:56:36,167][ZkClient:638] State is SyncConnected
+[INFO ][20180704 09:56:36,169][AbstractRegistry:269]  [DUBBO] Register: dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,192][AbstractRegistry:292]  [DUBBO] Subscribe: provider://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,236][AbstractRegistry:380]  [DUBBO] Notify urls for subscribe url provider://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506, urls: [empty://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506], dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:36,237][RegistryProtocol$OverrideListener:361]  [DUBBO] original override urls: [empty://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506], dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:36,238][RegistryProtocol$OverrideListener:363]  [DUBBO] subscribe url: provider://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506, override urls: [empty://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506], dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:36,244][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class RouterFactory$Adaptive implements com.alibaba.dubbo.rpc.cluster.RouterFactory {
+public com.alibaba.dubbo.rpc.cluster.Router getRouter(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getProtocol();
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.RouterFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.cluster.RouterFactory extension = (com.alibaba.dubbo.rpc.cluster.RouterFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.RouterFactory.class).getExtension(extName);
+return extension.getRouter(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:36,251][ExtensionLoader:927]  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ConfiguratorFactory$Adaptive implements com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory {
+public com.alibaba.dubbo.rpc.cluster.Configurator getConfigurator(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getProtocol();
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory extension = (com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.ConfiguratorFactory.class).getExtension(extName);
+return extension.getConfigurator(arg0);
+}
+}, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,261][ServiceBean:118]  [DUBBO] The service ready on spring started. service: com.crossoverJie.seconds.kill.api.StockServiceFacade, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,274][ServiceConfig:529]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.StockServiceFacade to local registry, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,274][ServiceConfig:489]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.StockServiceFacade to url dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20880&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,274][ServiceConfig:499]  [DUBBO] Register dubbo service com.crossoverJie.seconds.kill.api.StockServiceFacade url dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20880&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264 to registry registry://192.168.116.168:2181/com.alibaba.dubbo.registry.RegistryService?application=stock-service&dubbo=2.0.1&owner=crossoverJie&pid=17692&registry=zookeeper&timestamp=1530669396263, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,275][AbstractRegistry:269]  [DUBBO] Register: dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,289][AbstractRegistry:292]  [DUBBO] Subscribe: provider://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,303][AbstractRegistry:380]  [DUBBO] Notify urls for subscribe url provider://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264, urls: [empty://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264], dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:36,304][RegistryProtocol$OverrideListener:361]  [DUBBO] original override urls: [empty://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264], dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:36,304][RegistryProtocol$OverrideListener:363]  [DUBBO] subscribe url: provider://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264, override urls: [empty://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264], dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,317][Main:86]  [DUBBO] Dubbo SpringContainer started!, dubbo version: 2.0.1, current host: 192.168.116.168
+[ERROR][20180704 09:56:36,410][Main:91]  [DUBBO] Failed to start jetty server on 192.168.116.168:8090, cause: 地址已在使用, dubbo version: 2.0.1, current host: 192.168.116.168
+java.lang.IllegalStateException: Failed to start jetty server on 192.168.116.168:8090, cause: 地址已在使用
+	at com.crossoverJie.seconds.kill.common.container.JettyContainer.start(JettyContainer.java:62)
+	at com.alibaba.dubbo.container.Main.main(Main.java:85)
+Caused by: java.net.BindException: 地址已在使用
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.mortbay.jetty.nio.SelectChannelConnector.open(SelectChannelConnector.java:216)
+	at org.mortbay.jetty.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:315)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.Server.doStart(Server.java:235)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at com.crossoverJie.seconds.kill.common.container.JettyContainer.start(JettyContainer.java:60)
+	... 1 more
+[INFO ][20180704 09:56:36,415][AbstractConfig$1:80]  [DUBBO] Run shutdown hook now., dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,416][AbstractRegistryFactory:64]  [DUBBO] Close all registries [zookeeper://192.168.116.168:2181/com.alibaba.dubbo.registry.RegistryService?application=stock-service&dubbo=2.0.1&interface=com.alibaba.dubbo.registry.RegistryService&owner=crossoverJie&pid=17692&timestamp=1530669395501], dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,416][AbstractRegistry:443]  [DUBBO] Destroy registry:zookeeper://192.168.116.168:2181/com.alibaba.dubbo.registry.RegistryService?application=stock-service&dubbo=2.0.1&interface=com.alibaba.dubbo.registry.RegistryService&owner=crossoverJie&pid=17692&timestamp=1530669395501, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,416][AbstractRegistry:279]  [DUBBO] Unregister: dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,420][AbstractRegistry:452]  [DUBBO] Destroy unregister url dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,420][AbstractRegistry:279]  [DUBBO] Unregister: dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,423][AbstractRegistry:452]  [DUBBO] Destroy unregister url dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,424][AbstractRegistry:310]  [DUBBO] Unsubscribe: provider://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,424][AbstractRegistry:468]  [DUBBO] Destroy unsubscribe url provider://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,424][AbstractRegistry:310]  [DUBBO] Unsubscribe: provider://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:36,425][AbstractRegistry:468]  [DUBBO] Destroy unsubscribe url provider://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&category=configurators&check=false&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264, dubbo version: 2.0.1, current host: 192.168.116.168
+[DEBUG][20180704 09:56:36,425][ZkClient:915] Closing ZkClient...
+[INFO ][20180704 09:56:36,425][ZkEventThread:82] Terminate ZkClient event thread.
+[DEBUG][20180704 09:56:36,426][ZkConnection:77] Closing ZooKeeper connected to 192.168.116.168:2181
+[DEBUG][20180704 09:56:36,430][ZkClient:928] Closing ZkClient...done
+[INFO ][20180704 09:56:46,432][DubboProtocol:375]  [DUBBO] Close dubbo server: /192.168.116.168:20880, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:46,436][AbstractServer:142]  [DUBBO] Close NettyServer bind /0.0.0.0:20880, export /192.168.116.168:20880, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:46,441][AbstractProtocol:75]  [DUBBO] Unexport service: dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20880&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:46,441][AbstractProtocol:75]  [DUBBO] Unexport service: dubbo://192.168.116.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20880&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:46,442][AbstractProtocol:75]  [DUBBO] Unexport service: injvm://127.0.0.1/com.crossoverJie.seconds.kill.api.StockServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20880&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.StockServiceFacade&methods=getCurrentCount&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669396264, dubbo version: 2.0.1, current host: 192.168.116.168
+[INFO ][20180704 09:56:46,443][AbstractProtocol:75]  [DUBBO] Unexport service: injvm://127.0.0.1/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.116.168&bind.port=20880&dubbo=2.0.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=17692&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1530669395506, dubbo version: 2.0.1, current host: 192.168.116.168

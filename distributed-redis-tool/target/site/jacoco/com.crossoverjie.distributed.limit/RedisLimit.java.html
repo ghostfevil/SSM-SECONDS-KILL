@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RedisLimit.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">distributed-tools</a> &gt; <a href="index.source.html" class="el_package">com.crossoverjie.distributed.limit</a> &gt; <span class="el_source">RedisLimit.java</span></div><h1>RedisLimit.java</h1><pre class="source lang-java linenums">package com.crossoverjie.distributed.limit;
+
+import com.crossoverjie.distributed.constant.RedisToolsConstant;
+import com.crossoverjie.distributed.intercept.SpringMVCIntercept;
+import com.crossoverjie.distributed.util.ScriptUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.redis.connection.RedisClusterConnection;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisCluster;
+import redis.clients.jedis.JedisPool;
+
+import java.io.IOException;
+import java.util.Collections;
+
+/**
+ * Function: limit util
+ *
+ * @author crossoverJie
+ *         Date: 22/04/2018 15:54
+ * @since JDK 1.8
+ */
+public class RedisLimit {
+
+<span class="fc" id="L27">    private static Logger logger = LoggerFactory.getLogger(RedisLimit.class);</span>
+
+
+    private JedisConnectionFactory jedisConnectionFactory;
+    private int type ;
+<span class="fc" id="L32">    private int limit = 200;</span>
+
+    private static final int FAIL_CODE = 0;
+
+    /**
+     * lua script
+     */
+    private String script;
+
+<span class="fc" id="L41">    private RedisLimit(Builder builder) {</span>
+<span class="fc" id="L42">        this.limit = builder.limit ;</span>
+<span class="fc" id="L43">        this.jedisConnectionFactory = builder.jedisConnectionFactory;</span>
+<span class="fc" id="L44">        this.type = builder.type ;</span>
+<span class="fc" id="L45">        buildScript();</span>
+<span class="fc" id="L46">    }</span>
+
+
+    /**
+     * limit traffic
+     * @return if true
+     */
+    public boolean limit() {
+
+        //get connection
+<span class="fc" id="L56">        Object connection = getConnection();</span>
+
+<span class="fc" id="L58">        Object result = limitRequest(connection);</span>
+
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        if (FAIL_CODE != (Long) result) {</span>
+<span class="fc" id="L61">            return true;</span>
+        } else {
+<span class="fc" id="L63">            return false;</span>
+        }
+    }
+
+    private Object limitRequest(Object connection) {
+<span class="fc" id="L68">        Object result = null;</span>
+<span class="fc" id="L69">        String key = String.valueOf(System.currentTimeMillis() / 1000);</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (connection instanceof Jedis){</span>
+<span class="fc" id="L71">            result = ((Jedis)connection).eval(script, Collections.singletonList(key), Collections.singletonList(String.valueOf(limit)));</span>
+<span class="fc" id="L72">            ((Jedis) connection).close();</span>
+        }else {
+<span class="fc" id="L74">            result = ((JedisCluster) connection).eval(script, Collections.singletonList(key), Collections.singletonList(String.valueOf(limit)));</span>
+            try {
+<span class="fc" id="L76">                ((JedisCluster) connection).close();</span>
+<span class="nc" id="L77">            } catch (IOException e) {</span>
+<span class="nc" id="L78">                logger.error(&quot;IOException&quot;,e);</span>
+<span class="fc" id="L79">            }</span>
+        }
+<span class="fc" id="L81">        return result;</span>
+    }
+
+    /**
+     * get Redis connection
+     * @return
+     */
+    private Object getConnection() {
+        Object connection ;
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        if (type == RedisToolsConstant.SINGLE){</span>
+<span class="fc" id="L91">            RedisConnection redisConnection = jedisConnectionFactory.getConnection();</span>
+<span class="fc" id="L92">            connection = redisConnection.getNativeConnection();</span>
+<span class="fc" id="L93">        }else {</span>
+<span class="fc" id="L94">            RedisClusterConnection clusterConnection = jedisConnectionFactory.getClusterConnection();</span>
+<span class="fc" id="L95">            connection = clusterConnection.getNativeConnection() ;</span>
+        }
+<span class="fc" id="L97">        return connection;</span>
+    }
+
+
+    /**
+     * read lua script
+     */
+    private void buildScript() {
+<span class="fc" id="L105">        script = ScriptUtil.getScript(&quot;limit.lua&quot;);</span>
+<span class="fc" id="L106">    }</span>
+
+
+    /**
+     *  the builder
+     */
+    public static class Builder{
+<span class="fc" id="L113">        private JedisConnectionFactory jedisConnectionFactory = null ;</span>
+
+<span class="fc" id="L115">        private int limit = 200;</span>
+        private int type ;
+
+
+<span class="fc" id="L119">        public Builder(JedisConnectionFactory jedisConnectionFactory,int type){</span>
+<span class="fc" id="L120">            this.jedisConnectionFactory = jedisConnectionFactory;</span>
+<span class="fc" id="L121">            this.type = type ;</span>
+<span class="fc" id="L122">        }</span>
+
+        public Builder limit(int limit){
+<span class="fc" id="L125">            this.limit = limit ;</span>
+<span class="fc" id="L126">            return this;</span>
+        }
+
+        public RedisLimit build(){
+<span class="fc" id="L130">            return new RedisLimit(this) ;</span>
+        }
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

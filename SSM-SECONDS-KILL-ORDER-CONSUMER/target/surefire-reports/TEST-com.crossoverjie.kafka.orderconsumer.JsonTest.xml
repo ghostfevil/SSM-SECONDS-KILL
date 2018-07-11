@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.crossoverjie.kafka.orderconsumer.JsonTest" time="0.035" tests="1" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_162\jre\bin"/>
+    <property name="java.vm.version" value="25.162-b12"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\workspace\SSM-SECONDS-KILL\SSM-SECONDS-KILL-ORDER-CONSUMER"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="E:\workspace\SSM-SECONDS-KILL\SSM-SECONDS-KILL-ORDER-CONSUMER"/>
+    <property name="java.runtime.version" value="1.8.0_162-b12"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_162\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\fhadmin\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="E:\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5513183883565024951.tmp"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_162\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_162/bin/server;C:/Program Files/Java/jre1.8.0_162/bin;C:/Program Files/Java/jre1.8.0_162/lib/amd64;E:\Oracle\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\mysql\bin;C:\Program Files\Java\jdk1.8.0_162\bin;C:\Program Files\Java\jdk1.8.0_162\jre\bin;E:\apache-maven-3.5.3\bin;E:\eclipse;;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\fhadmin"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="user.name" value="fhadmin"/>
+    <property name="java.class.path" value="E:\eclipse\plugins\org.eclipse.m2e.maven.runtime_1.8.3.20180227-2135\jars\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_162\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B -s E:\apache-maven-3.5.3\conf\settings.xml install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_162"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_162\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_162\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_162\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_162\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="E:\workspace\SSM-SECONDS-KILL\SSM-SECONDS-KILL-ORDER-CONSUMER\EMBEDDED"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="test" classname="com.crossoverjie.kafka.orderconsumer.JsonTest" time="0.035">
+    <error message="class com.crossoverjie.kafka.orderconsumer.pojo.Stock declares multiple JSON fields named id" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: class com.crossoverjie.kafka.orderconsumer.pojo.Stock declares multiple JSON fields named id
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.getBoundFields(ReflectiveTypeAdapterFactory.java:172)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.create(ReflectiveTypeAdapterFactory.java:102)
+	at com.google.gson.Gson.getAdapter(Gson.java:457)
+	at com.google.gson.Gson.fromJson(Gson.java:921)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	at com.google.gson.Gson.fromJson(Gson.java:836)
+	at com.google.gson.Gson.fromJson(Gson.java:808)
+	at com.crossoverjie.kafka.orderconsumer.JsonTest.test(JsonTest.java:26)
+</error>
+    <system-out><![CDATA[2018-06-27 11:50:01.727 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.crossoverjie.kafka.orderconsumer.OrderConsumerApplicationTests], using SpringBootContextLoader
+2018-06-27 11:50:01.733 [main] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [com.crossoverjie.kafka.orderconsumer.OrderConsumerApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2018-06-27 11:50:01.734 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.crossoverjie.kafka.orderconsumer.OrderConsumerApplicationTests]: OrderConsumerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2018-06-27 11:50:01.826 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.crossoverjie.kafka.orderconsumer.OrderConsumerApplication for test class com.crossoverjie.kafka.orderconsumer.OrderConsumerApplicationTests
+2018-06-27 11:50:01.834 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-27 11:50:01.850 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7fa98a66, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@15ff3e9e, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5fdcaa40, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6dc17b83, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5e0826e7, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@32eff876, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@8dbdac1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6e20b53a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@71809907, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3ce1e309, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6aba2b86, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@158da8e]
+2018-06-27 11:50:01.854 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.crossoverjie.kafka.orderconsumer.RedisTest], using SpringBootContextLoader
+2018-06-27 11:50:01.855 [main] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [com.crossoverjie.kafka.orderconsumer.RedisTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2018-06-27 11:50:01.856 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.crossoverjie.kafka.orderconsumer.RedisTest]: RedisTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2018-06-27 11:50:01.861 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.crossoverjie.kafka.orderconsumer.OrderConsumerApplication for test class com.crossoverjie.kafka.orderconsumer.RedisTest
+2018-06-27 11:50:01.866 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-27 11:50:01.870 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@47eaca72, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@55141def, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@55182842, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3270d194, org.springframework.test.context.transaction.TransactionalTestExecutionListener@235834f2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5656be13, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4218d6a3, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@76505305, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@14cd1699, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@77888435, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@73a1e9a9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@71d44a3]
+]]></system-out>
+  </testcase>
+</testsuite>

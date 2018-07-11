@@ -1,0 +1,75 @@
+[INFO ][20180608 11:11:21,208][?:?] using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+[INFO ][20180608 11:11:21,288][Main:61]  [DUBBO] Use container type([spring]) to run dubbo serivce., dubbo version: 2.6.1, current host: 192.168.75.168
+[INFO ][20180608 11:11:22,949][DruidDataSource:721] {dataSource-1} inited
+[INFO ][20180608 11:11:23,983][ServiceBean:119]  [DUBBO] The service ready on spring started. service: com.crossoverJie.seconds.kill.api.OrderServiceFacade, dubbo version: 2.6.1, current host: 192.168.75.168
+[INFO ][20180608 11:11:24,064][ServiceConfig:531]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade to local registry, dubbo version: 2.6.1, current host: 192.168.75.168
+[INFO ][20180608 11:11:24,064][ServiceConfig:490]  [DUBBO] Export dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade to url dubbo://192.168.75.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.75.168&bind.port=20880&dubbo=2.6.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=2438&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1528427483991, dubbo version: 2.6.1, current host: 192.168.75.168
+[INFO ][20180608 11:11:24,064][ServiceConfig:500]  [DUBBO] Register dubbo service com.crossoverJie.seconds.kill.api.OrderServiceFacade url dubbo://192.168.75.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.75.168&bind.port=20880&dubbo=2.6.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=2438&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1528427483991 to registry registry://192.168.75.168:2181/com.alibaba.dubbo.registry.RegistryService?application=stock-service&dubbo=2.6.1&owner=crossoverJie&pid=2438&registry=zookeeper&timestamp=1528427483987, dubbo version: 2.6.1, current host: 192.168.75.168
+[ERROR][20180608 11:11:24,265][Main:91]  [DUBBO] Fail to start server(url: dubbo://192.168.75.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.75.168&bind.port=20880&channel.readonly.sent=true&codec=dubbo&dubbo=2.6.1&generic=false&heartbeat=60000&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=2438&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1528427483991) Failed to bind NettyServer on /192.168.75.168:20880, cause: Failed to bind to: /0.0.0.0:20880, dubbo version: 2.6.1, current host: 192.168.75.168
+com.alibaba.dubbo.rpc.RpcException: Fail to start server(url: dubbo://192.168.75.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.75.168&bind.port=20880&channel.readonly.sent=true&codec=dubbo&dubbo=2.6.1&generic=false&heartbeat=60000&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=2438&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1528427483991) Failed to bind NettyServer on /192.168.75.168:20880, cause: Failed to bind to: /0.0.0.0:20880
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.createServer(DubboProtocol.java:283)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.openServer(DubboProtocol.java:260)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.export(DubboProtocol.java:247)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:93)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:56)
+	at com.alibaba.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:56)
+	at com.alibaba.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java)
+	at com.alibaba.dubbo.registry.integration.RegistryProtocol.doLocalExport(RegistryProtocol.java:166)
+	at com.alibaba.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:129)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:54)
+	at com.alibaba.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:54)
+	at com.alibaba.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java)
+	at com.alibaba.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:505)
+	at com.alibaba.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:357)
+	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:316)
+	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:215)
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:121)
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:50)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:167)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:383)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:337)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:882)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
+	at com.alibaba.dubbo.container.spring.SpringContainer.start(SpringContainer.java:45)
+	at com.alibaba.dubbo.container.Main.main(Main.java:85)
+Caused by: com.alibaba.dubbo.remoting.RemotingException: Failed to bind NettyServer on /192.168.75.168:20880, cause: Failed to bind to: /0.0.0.0:20880
+	at com.alibaba.dubbo.remoting.transport.AbstractServer.<init>(AbstractServer.java:68)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyServer.<init>(NettyServer.java:61)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyTransporter.bind(NettyTransporter.java:31)
+	at com.alibaba.dubbo.remoting.Transporter$Adaptive.bind(Transporter$Adaptive.java)
+	at com.alibaba.dubbo.remoting.Transporters.bind(Transporters.java:56)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchanger.bind(HeaderExchanger.java:42)
+	at com.alibaba.dubbo.remoting.exchange.Exchangers.bind(Exchangers.java:70)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.createServer(DubboProtocol.java:281)
+	... 28 more
+Caused by: org.jboss.netty.channel.ChannelException: Failed to bind to: /0.0.0.0:20880
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyServer.doOpen(NettyServer.java:92)
+	at com.alibaba.dubbo.remoting.transport.AbstractServer.<init>(AbstractServer.java:63)
+	... 35 more
+Caused by: java.net.BindException: 地址已在使用
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74)
+	at org.jboss.netty.channel.Channels.bind(Channels.java:468)
+	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:192)
+	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348)
+	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142)
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90)
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282)
+	... 37 more
+[INFO ][20180608 11:11:24,272][AbstractConfig$1:80]  [DUBBO] Run shutdown hook now., dubbo version: 2.6.1, current host: 192.168.75.168
+[INFO ][20180608 11:11:24,272][AbstractRegistryFactory:64]  [DUBBO] Close all registries [], dubbo version: 2.6.1, current host: 192.168.75.168
+[INFO ][20180608 11:11:34,274][AbstractProtocol:75]  [DUBBO] Unexport service: dubbo://192.168.75.168:20880/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.75.168&bind.port=20880&dubbo=2.6.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=2438&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1528427483991, dubbo version: 2.6.1, current host: 192.168.75.168
+[INFO ][20180608 11:11:34,276][AbstractProtocol:75]  [DUBBO] Unexport service: injvm://127.0.0.1/com.crossoverJie.seconds.kill.api.OrderServiceFacade?anyhost=true&application=stock-service&bind.ip=192.168.75.168&bind.port=20880&dubbo=2.6.1&generic=false&interface=com.crossoverJie.seconds.kill.api.OrderServiceFacade&methods=createOptimisticOrderUseRedisAndKafka,createOptimisticOrderUseRedis,createWrongOrder,createOptimisticOrder&owner=crossoverJie&pid=2438&revision=2.2.0-SNAPSHOT&side=provider&timestamp=1528427483991, dubbo version: 2.6.1, current host: 192.168.75.168
